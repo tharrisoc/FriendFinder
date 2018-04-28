@@ -1,0 +1,31 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Compatibility-Based Friend/Date Finder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tharrisoc/FriendFinder.git"
+  },
+  "keywords": [
+    "compatibility",
+    "friend",
+    "dating",
+    "match"
+  ],
+  "author": "Thomas Harris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tharrisoc/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/tharrisoc/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "path": "^0.12.7"
+  }
+}

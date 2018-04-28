@@ -1,0 +1,545 @@
+<!--
+    This is an arbitrary list of questions adapted from 
+    (and in some cases reworded) various dating-oriented websites.
+
+    These questions make no pretense of being a legitimate compatibility
+    test for finding a date; they are just questions that are needed to
+    implement this homework assignment.
+
+    Ten questions will be chosen from this pool.
+
+    . How likely are you to date someone who does not have the same 
+      beliefs as you? (1 = not very likely 5 = very likely)
+
+    . What do you think of online dating?
+
+    . How likely are you to hold a grudge, rather than to forgive 
+      easily?
+
+    . If I asked your past partners about your honesty and trustworthiness
+      in the relationship, how would they answer?
+      (1 = least trustworty 5 = most trustworthy)
+
+    . Have you tolerated unfulfilling past relationships?
+
+    . Before making a telephone call, do you ever rehearse what you are
+      going to say?
+
+    . It is important to speak to your girlfriend/boyfriend every day
+      (1 = not important 5 = very important)
+
+    . Celebrating anniversaries/Valentines Day is very important
+      (1 = not important 5 = very important)
+
+    . How well would you be able to deal with a long distance relatonship?
+      (1 = not well 5 = very well)
+
+    . I am willing to engage in public displays of affection.
+      (1 = not very willing 5 = very willing)
+
+    . Rate the way that you handle crisis situations
+      (1 = not well 5 = very well)
+    
+    . I am a typical person in the way I think, act and behave.
+      (1 = very atypical 5 = very typical)
+
+    . Rate yourself on a scale of introvert to extrovert
+      (1 = very introverted 5 = very extroverted)
+
+    . How difficult do you find it to compromise on things?
+      (1 = very easy 5 = very hard)
+
+    . I have a good relationship with my family
+      (1 = very bad  5 = very good)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Friend Finder Survey</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+          crossorigin="anonymous">
+    <style>
+        body {
+        background-color : #f2ebd5; 
+        }
+
+        #surveycontainer {
+        width: 65%;
+        }
+
+        #firstname {
+        width: 24rem;
+        }
+
+        #photourl {
+        width: 40rem;
+        }
+
+        .radio-blue [type="radio"]:checked+label:after {
+        border-color: #b2cff4;
+        background-color: #b2cff4;
+        }
+        /*Gap*/
+
+        .radio-blue-gap [type="radio"].with-gap:checked+label:before {
+        border-color: #b2cff4;
+        }
+
+        .radio-blue-gap [type="radio"]:checked+label:after {
+        border-color: #b2cff4;
+        background-color: #b2cff4;
+        }
+
+
+        .radio-pink [type="radio"]:checked+label:after {
+        border-color: #fceaf0;
+        background-color: #fceaf0;
+        }
+        /*Gap*/
+
+        .radio-pink-gap [type="radio"].with-gap:checked+label:before {
+        border-color: #fceaf0;
+        }
+
+        .radio-pink-gap [type="radio"]:checked+label:after {
+        border-color: #fceaf0;
+        background-color: #fceaf0;
+        }
+
+        .radio-green [type="radio"]:checked+label:after {
+        border-color: #b5fcba;
+        background-color: #b5fcba;
+        }
+        /*Gap*/
+
+        .radio-green-gap [type="radio"].with-gap:checked+label:before {
+        border-color: #b5fcba;
+        }
+
+        .radio-green-gap [type="radio"]:checked+label:after {
+        border-color: #b5fcba;
+        background-color: #b5fcba;
+        }
+
+        #surveybutton {
+        padding-bottom : 2rem;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="surveycontainer">
+      <h1>Friend Finder</h1>
+      <h5>To get started, please answer the questions in our survey</h5>
+      <form method="POST" action="/api/friends">
+        <div class="form-group">
+          <label for="firstname">First Name (Required)</label>
+          <input type="text" class="form-control" id="firstname" name="firstname">
+        </div>
+
+        <div class="form-group">
+          Gender:
+          <div class="form-check radio-blue-gap">
+            <input type="radio" class="with-gap" id="radiomale" name="gendermale">
+            <label for="radiomale">Male</label>
+          </div>
+
+          <div class="form-check radio-pink-gap">
+            <input type="radio" class="with-gap" id="radiofemale" name="genderfemale">
+            <label for="radiofemale">Female</label>
+          </div>
+        </div>  <!-- end of form-group -->
+          
+        <div class="form-group">
+          <label for="photourl">Photo URL (Required)</label>
+          <input type="text" class="form-control" id="photourl" name="photourl"
+                 placeholder="Please type or paste a link to your photo">
+        </div>
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                Rate yourself on a scale of introvert to extrovert<br />
+                (1 = very introverted 5 = very extroverted)
+              </small>
+            </p>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq01r1" name="radioq01r1">
+              <label class="form-check-label" for="radioq01r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq01r2" name="radioq01r2">
+              <label class="form-check-label" for="radioq01r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq01r3" name="radioq01r3">
+              <label class="form-check-label" for="radioq01r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq01r4" name="radioq01r4">
+              <label class="form-check-label" for="radioq01r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq01r5" name="radioq01r5">
+              <label class="form-check-label" for="radioq01r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                How difficult do you find it to compromise on things?<br />
+                (1 = very easy 5 = very hard)
+              </small>
+            </p>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq02r1" name="radioq02r1">
+              <label class="form-check-label" for="radioq02r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq02r2" name="radioq02r2">
+              <label class="form-check-label" for="radioq02r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq02r3" name="radioq02r3">
+              <label class="form-check-label" for="radioq02r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq02r4" name="radioq02r4">
+              <label class="form-check-label" for="radioq02r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq02r5" name="radioq02r5">
+              <label class="form-check-label" for="radioq02r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                How likely are you to date someone who does not have the same beliefs as you?<br />
+                (1 = not very likely 5 = very likely)
+              </small>
+            </p>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq03r1" name="radioq03r1">
+              <label class="form-check-label" for="radioq03r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq03r2" name="radioq03r2">
+              <label class="form-check-label" for="radioq03r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq03r3" name="radioq03r3">
+              <label class="form-check-label" for="radioq03r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq03r4" name="radioq03r4">
+              <label class="form-check-label" for="radioq03r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq03r5" name="radioq03r5">
+              <label class="form-check-label" for="radioq03r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                Celebrating anniversaries/Valentines Day is very important<br />
+                (1 = not important 5 = very important)
+              </small>
+            </p>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq04r1" name="radioq04r1">
+              <label class="form-check-label" for="radioq04r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq04r2" name="radioq04r2">
+              <label class="form-check-label" for="radioq04r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq04r3" name="radioq04r3">
+              <label class="form-check-label" for="radioq04r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq04r4" name="radioq04r4">
+              <label class="form-check-label" for="radioq04r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq04r5" name="radioq04r5">
+              <label class="form-check-label" for="radioq04r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                How well would you be able to deal with a long distance relatonship?<br />
+                (1 = not well 5 = very well)
+              </small>
+            </p>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq05r1" name="radioq05r1">
+              <label class="form-check-label" for="radioq05r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq05r2" name="radioq05r2">
+              <label class="form-check-label" for="radioq05r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq05r3" name="radioq05r3">
+              <label class="form-check-label" for="radioq05r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq05r4" name="radioq05r4">
+              <label class="form-check-label" for="radioq05r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq05r5" name="radioq05r5">
+              <label class="form-check-label" for="radioq05r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                It is important to speak to your girlfriend/boyfriend every day<br />
+                (1 = not important 5 = very important)
+              </small>
+            </p>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq06r1" name="radioq06r1">
+              <label class="form-check-label" for="radioq06r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq06r2" name="radioq06r2">
+              <label class="form-check-label" for="radioq06r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq06r3" name="radioq06r3">
+              <label class="form-check-label" for="radioq06r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq06r4" name="radioq06r4">
+              <label class="form-check-label" for="radioq06r`4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq06r5" name="radioq06r5">
+              <label class="form-check-label" for="radioq06r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+        
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                I am willing to engage in public displays of affection.<br />
+                (1 = not very willing 5 = very willing)
+              </small>
+            </p>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq07r1" name="radioq07r1">
+              <label class="form-check-label" for="radioq07r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq07r2" name="radioq07r2">
+              <label class="form-check-label" for="radioq07r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq07r3" name="radioq07r3">
+              <label class="form-check-label" for="radioq07r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq07r4" name="radioq07r4">
+              <label class="form-check-label" for="radioq07r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq07r5" name="radioq07r5">
+              <label class="form-check-label" for="radioq07r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                I am a typical person in the way I think, act and behave.<br />
+                (1 = very atypical 5 = very typical)
+              </small>
+            </p>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq08r1" name="radioq08r1">
+              <label class="form-check-label" for="radioq08r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq08r2" name="radioq08r2">
+              <label class="form-check-label" for="radioq08r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq08r3" name="radioq08r3">
+              <label class="form-check-label" for="radioq08r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq08r4" name="radioq08r4">
+              <label class="form-check-label" for="radioq08r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq08r5" name="radioq08r5">
+              <label class="form-check-label" for="radioq08r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                I have a good relationship with my family<br />
+                (1 = very bad  5 = very good)
+              </small>
+            </p>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq09r1" name="radioq09r1">
+              <label class="form-check-label" for="radioq09r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq09r2" name="radioq09r2">
+              <label class="form-check-label" for="radioq09r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq09r3" name="radioq09r3">
+              <label class="form-check-label" for="radioq09r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq09r4" name="radioq09r4">
+              <label class="form-check-label" for="radioq09r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq09r5" name="radioq09r5">
+              <label class="form-check-label" for="radioq09r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="form-group">
+          <div class="form-inline">
+            <p class="questiontext">
+              <small>
+                How likely are you to hold a grudge, rather than to forgive easily?<br />
+                (1 = will hold a grudge forever 5 = usually willing to forgive)
+              </small>
+            </p>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq10r1" name="radioq10r1">
+              <label class="form-check-label" for="radioq10r1">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq10r2" name="radioq10r2">
+              <label class="form-check-label" for="radioq10r2">2&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq10r3" name="radioq10r3">
+              <label class="form-check-label" for="radioq10r3">3&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq10r4" name="radioq10r4">
+              <label class="form-check-label" for="radioq10r4">4&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            </div>
+        
+            <div class="form-check radio-green-gap">
+              <input class="form-check-input" type="radio" id="radioq10r5" name="radioq10r5">
+              <label class="form-check-label" for="radioq10r5">5</label>
+            </div>
+          </div>
+        </div>  <!-- end of form-group -->
+
+        <div class="mx-auto" style="width: 200px;" id="surveybutton">
+          <button type="submit" class="btn btn-primary">Submit<br />Survey</button>
+        </div>
+      </form>
+    </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+            crossorigin="anonymous"></script>
+    <!-- Main JS -->
+<!--    <script src="js/main.js"></script> -->
+  </body>
+</html>
