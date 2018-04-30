@@ -13,8 +13,11 @@ var PORT = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// save the root directory of the app because the value of __dirname
+// may change when referenced by different portions of the app
 saveRoot = __dirname;
 
+// combine the two sets of routes
 require( __dirname + '/app/routing/htmlRoutes')(app);
 require( __dirname + '/app/routing/apiRoutes')(app);
 

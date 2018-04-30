@@ -10,7 +10,7 @@ module.exports = function(app) {
   });
 
   // Default catch-all route
-  app.get("*", function(req, res) {
+  app.get("/", function(req, res) {
     res.sendFile( saveRoot + "/app/public/home.html");
   });
 }
